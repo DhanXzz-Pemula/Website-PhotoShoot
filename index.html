@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Photo Shoot Kece!</title>
+  <style>
+    body {
+      background-color: rgb(130, 184, 202);
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    h1 {
+      background-color: rgb(223, 115, 223);
+      color: rgb(65, 65, 65);
+      font-family: Comic Sans MS;
+      text-align: center;
+      font-size: 2rem;
+      margin: 10px;
+      padding: 10px;
+    }
+
+    .btnPhoto {
+      color: black;
+      background-color: white;
+      flex-direction: column;
+      text-align: center;
+      justify-content: center;
+      display: flex;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 20px;
+      border: 2px solid black;
+      font-size: 1.2rem;
+      box-shadow: 5px 10px 15px gray;
+      margin: 30px auto;
+      padding: 20px;
+      width: 80%;
+      max-width: 300px;
+      height: auto;
+    }
+
+    .btnPhoto:hover {
+      transform: scale(1.05);
+      background-color: rgb(140, 174, 185);
+      box-shadow: 5px 5px 15px gray;
+    }
+
+    /* Biar lebih enak dibaca di HP */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      .btnPhoto {
+        font-size: 1rem;
+        padding: 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <h1>📸 Selamat Datang di <br> <span style="color: purple;">Photo Shoot Kece!</span> 🌟</h1>
+    <button class="btnPhoto">🎉 Click Aku Jika Mau Photo 🎉</button>
+  </div>
+
+  <script>
+    const btnPhoto = document.querySelector('.btnPhoto');
+
+    // Array hasil random biar seru
+    const hasilFoto = [
+      "✨ Super Kece!",
+      "🤳 Agak Blur Tapi Estetik",
+      "🔥 Keren Banget!",
+      "🌈 Full Colour Cantik",
+      "💫 Dramatic Style",
+      "🌟 Perfect Shot!"
+    ];
+
+    btnPhoto.addEventListener('click', function () {
+      let isiJawaban = prompt(
+        'Halo 🙌 Selamat Datang!\n' +
+        'Silahkan Pilih Tema Dibawah Ini:\n\n' +
+        '1. 🌸 Bunga-Bunga\n' +
+        '2. 🌅 Sunset\n' +
+        '3. 🌳 Taman\n\n' +
+        'Ketik sesuai pilihan (contoh: 1 / Bunga-Bunga)'
+      );
+
+      switch (isiJawaban) {
+        case 'bunga-bunga':
+        case 'Bunga-Bunga':
+        case 'bunga':
+        case '1': {
+          let konfirmasi = prompt(`Apakah Anda yakin memilih tema 🌸 Bunga-Bunga? (YES/GAS untuk lanjut)`);
+          if (konfirmasi === 'YES' || konfirmasi === 'GAS' || konfirmasi === 'gas' || konfirmasi === 'yes') {
+            let bunga = parseInt(prompt(`Mantap! 🌸 Berapa kali mau di-shoot?\nInput angka: `));
+            for (let i = 1; i <= bunga; i++) {
+              let hasil = hasilFoto[Math.floor(Math.random() * hasilFoto.length)];
+              alert(`📸 Foto ke-${i} dengan tema 🌸 Bunga-Bunga → ${hasil}`);
+            }
+            alert(`✨ Tadaaa...! Semua foto Bunga-Bunga mu sudah jadi 🌸\nTerimakasih sudah foto shoot di tempat kami 💕`);
+          } else {
+            alert('❌ Oke, sesi dibatalkan.');
+          }
+          break;
+        }
+
+        case 'sunset':
+        case 'Sunset':
+        case '2': {
+          let konfirmasi = prompt(`Apakah Anda yakin memilih tema 🌅 Sunset? (YES/GAS untuk lanjut)`);
+          if (konfirmasi === 'YES' || konfirmasi === 'GAS' || konfirmasi === 'gas' || konfirmasi === 'yes') {
+            let sunset = parseInt(prompt(`Keren! 🌅 Mau berapa kali shoot?\nInput angka: `));
+            for (let i = 1; i <= sunset; i++) {
+              let hasil = hasilFoto[Math.floor(Math.random() * hasilFoto.length)];
+              alert(`📸 Foto ke-${i} dengan tema 🌅 Sunset → ${hasil}`);
+            }
+            alert(`🌞 Sunset mu berhasil diabadikan dengan indah!\nTerimakasih sudah foto shoot di tempat kami 💕`);
+          } else {
+            alert('❌ Oke, sesi dibatalkan.');
+          }
+          break;
+        }
+
+        case 'taman':
+        case 'Taman':
+        case '3': {
+          let konfirmasi = prompt(`Apakah Anda yakin memilih tema 🌳 Taman? (YES/GAS untuk lanjut)`);
+          if (konfirmasi === 'YES' || konfirmasi === 'GAS' || konfirmasi === 'gas' || konfirmasi === 'yes') {
+            let taman = parseInt(prompt(`Asik! 🌳 Mau berapa kali shoot?\nInput angka: `));
+            for (let i = 1; i <= taman; i++) {
+              let hasil = hasilFoto[Math.floor(Math.random() * hasilFoto.length)];
+              alert(`📸 Foto ke-${i} dengan tema 🌳 Taman → ${hasil}`);
+            }
+            alert(`🌿 Jepretan Tamanmu sudah jadi!\nTerimakasih sudah foto shoot di tempat kami 💕`);
+          } else {
+            alert('❌ Oke, sesi dibatalkan.');
+          }
+          break;
+        }
+
+        default:
+          alert('⚠️ Perintah yang Anda masukkan salah!\nHarap ketik sesuai pilihan yang tersedia 🙏');
+      }
+    });
+  </script>
+</body>
+
+</html>
